@@ -27,8 +27,8 @@
                                         filter-list
                                         &key
                                           not
-                                          (schema-col "table_schema")
-                                          (table-col  "table_name"))
+                                          (schema-col "TABLE_SCHEMA")
+                                          (table-col  "TABLE_NAME"))
   "Given an INCLUDING or EXCLUDING clause, turn it into a MS SQL WHERE clause."
   (loop :for (schema . table-name-list) :in filter-list
      :append (mapcar (lambda (table-name)
@@ -48,12 +48,12 @@
   (loop
      :with incl-where := (filter-list-to-where-clause
                           mssql including :not nil
-                          :schema-col "c.table_schema"
-                          :table-col "c.table_name")
+                          :schema-col "c.TABLE_SCHEMA"
+                          :table-col "c.TABLE_NAME")
      :with excl-where := (filter-list-to-where-clause
                           mssql excluding :not t
-                          :schema-col "c.table_schema"
-                          :table-col "c.table_name")
+                          :schema-col "c.TABLE_SCHEMA"
+                          :table-col "c.TABLE_NAME")
      :for (schema-name table-name name type default nullable identity
                        character-maximum-length
                        numeric-precision numeric-precision-radix numeric-scale
@@ -124,12 +124,12 @@
   (loop
      :with incl-where := (filter-list-to-where-clause
                           mssql including :not nil
-                          :schema-col "kcu1.table_schema"
-                          :table-col "kcu1.table_name")
+                          :schema-col "KCU1.TABLE_SCHEMA"
+                          :table-col "KCU1.TABLE_NAME")
      :with excl-where := (filter-list-to-where-clause
                           mssql excluding :not t
-                          :schema-col "kcu1.table_schema"
-                          :table-col "kcu1.table_name")
+                          :schema-col "KCU1.TABLE_SCHEMA"
+                          :table-col "KCU1.TABLE_NAME")
      :for (fkey-name schema-name table-name col
                      fschema-name ftable-name fcol
                      fk-update-rule fk-delete-rule)

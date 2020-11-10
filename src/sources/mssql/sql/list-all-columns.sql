@@ -47,4 +47,4 @@
          ~:[~*~;and (~{~a~^~&~10t or ~})~]
          ~:[~*~;and (~{~a~^~&~10t and ~})~]
 
-order by c.table_schema, c.table_name, c.ordinal_position;
+order by c.TABLE_SCHEMA, c.TABLE_NAME, c.ORDINAL_POSITION;
